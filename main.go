@@ -1,16 +1,13 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"pxj/courseSystem/api"
+	"pxj/courseSystem/config"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(context *gin.Context) {
-		context.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	err := r.Run()
-	if err != nil {
-		return
-	} // 监听0.0.0.0:8080启动服务
+	// Init config resource run server
+	config.Init()
+	api.InitResource()
+	api.RunServer()
 }

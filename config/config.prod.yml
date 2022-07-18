@@ -1,0 +1,15 @@
+serverConf:
+  name: "courseSystem"
+  version: "0.0.1"
+  host: "0.0.0.0"
+  port: 8080
+mysqlConf:
+  user: ""
+  password: ""
+  host: ""
+  port: 3306
+  db: ""
+redisConf:
+  host: ""
+  db: 1
+  password: ""

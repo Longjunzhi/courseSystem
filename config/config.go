@@ -54,7 +54,8 @@ func Init() {
 		panic(err)
 	}
 	logrus.Infof("path = %v", path)
-	idx := strings.Index(path, fmt.Sprintf("%scourseSytem", concurrentOsTag))
+	idx := strings.Index(path, fmt.Sprintf("%scourseSystem", concurrentOsTag))
+
 	if idx < 0 {
 		panic(fmt.Errorf("project path /courseSystem idx = %v", idx))
 	}
