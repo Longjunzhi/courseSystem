@@ -19,6 +19,7 @@ import (
 
 func InitResource() (err error) {
 	// init mysql
+
 	dsn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?charset=utf8mb4&parseTime=True&loc=Local",
 		config.AppConf.MysqlConf.User,
 		config.AppConf.MysqlConf.Password,
@@ -26,7 +27,9 @@ func InitResource() (err error) {
 		config.AppConf.MysqlConf.Port,
 		config.AppConf.MysqlConf.DB)
 	err = databases.InitMysql(dsn)
+
 	if err != nil {
+		logrus.Errorf("init mysql config: %v, err: %v", config.AppConf.MysqlConf, err)
 		return err
 	}
 	// init redis
@@ -43,7 +46,7 @@ func RunServer() {
 	host := config.AppConf.ServerConf.Host
 	port := config.AppConf.ServerConf.Port
 	logrus.Infof("server run at: host = %v, port = %v", host, port)
-
+	log.Printf("config: %v", config.AppConf)
 	address := fmt.Sprintf("%s:%d", host, port)
 	server := &http.Server{
 		Addr:           address,

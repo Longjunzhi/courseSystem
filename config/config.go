@@ -55,7 +55,6 @@ func Init() {
 	}
 	logrus.Infof("path = %v", path)
 	idx := strings.Index(path, fmt.Sprintf("%scourseSystem", concurrentOsTag))
-
 	if idx < 0 {
 		panic(fmt.Errorf("project path /courseSystem idx = %v", idx))
 	}
@@ -64,9 +63,13 @@ func Init() {
 	if err := viper.ReadInConfig(); err != nil {
 		panic(fmt.Errorf("Error reading config, %s", err))
 	}
+	err = viper.Unmarshal(&AppConf)
+	if err != nil {
+		panic(fmt.Errorf("unable to decode into appConf, %v", err))
+	}
 	logrus.Infof("AppConf = %v", AppConf)
 	AppConf.ENV = env
-	logrus.Infof("init courseSystem success: env = %v, conf = %v")
+	logrus.Infof("init courseSystem success: env = %v, conf = %v", AppConf.ENV, AppConf)
 }
 
 func GetBasePath() (path string, pathTag string) {

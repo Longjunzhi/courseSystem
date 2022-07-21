@@ -4,11 +4,11 @@ serverConf:
   host: "0.0.0.0"
   port: 8080
 mysqlConf:
-  user: ""
-  password: ""
-  host: ""
+  user: "root"
+  password: "123456"
+  host: "127.0.0.1"
   port: 3306
-  db: ""
+  db: "courseSystem"
 redisConf:
   host: ""
   db: 1

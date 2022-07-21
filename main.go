@@ -8,6 +8,9 @@ import (
 func main() {
 	// Init config resource run server
 	config.Init()
-	api.InitResource()
+	err := api.InitResource()
+	if err != nil {
+		return
+	}
 	api.RunServer()
 }

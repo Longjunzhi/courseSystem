@@ -1,18 +1,19 @@
 package databases
 
 import (
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
 
 var (
-	DB *gorm.DB
+	Db *gorm.DB
 )
 
 func InitMysql(dsn string) (err error) {
-	db, err := gorm.Open("msyql", dsn)
+	db, err := gorm.Open("mysql", dsn)
 	if err != nil {
 		return err
 	}
-	DB = db
+	Db = db
 	return
 }
