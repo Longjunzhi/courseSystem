@@ -10,9 +10,12 @@ var (
 )
 
 func InitRoutes() {
-	Routes := gin.Default()
+	Routes = gin.Default()
 	Routes.POST("/login", controllers.Login)
 
 	api := Routes.Group("/api")
 	api.POST("/users/getUserById", controllers.GetUserById)
+
+	admin := Routes.Group("/admin")
+	admin.POST("/login", controllers.GetUserById)
 }

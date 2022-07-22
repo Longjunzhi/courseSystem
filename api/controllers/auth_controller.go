@@ -6,6 +6,7 @@ import (
 )
 
 func Login(c *gin.Context) {
-	ctx := c.Request.Context()
-	c.JSON(http.StatusOK, ctx)
+	//ctx := c.Request.Context()
+	c.JSON(http.StatusOK, "nihao")
+	return
 }

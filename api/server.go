@@ -45,8 +45,8 @@ func RunServer() {
 	router := routes.Routes
 	host := config.AppConf.ServerConf.Host
 	port := config.AppConf.ServerConf.Port
-	logrus.Infof("server run at: host = %v, port = %v", host, port)
-	log.Printf("config: %v", config.AppConf)
+	logrus.Infof("server run at: host = %+v, port = %+v", host, port)
+	log.Printf("config: %+v", config.AppConf)
 	address := fmt.Sprintf("%s:%d", host, port)
 	server := &http.Server{
 		Addr:           address,
